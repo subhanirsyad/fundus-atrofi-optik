@@ -1,0 +1,16 @@
+[server]
+maxUploadSize = 25
+
+[client]
+toolbarMode = "minimal"
+
+[theme]
+base = "light"
+primaryColor = "#1f1c17"
+backgroundColor = "#f4f0e8"
+secondaryBackgroundColor = "#ebe5d8"
+textColor = "#1f1c17"
+borderColor = "#cfc6b4"
+baseRadius = "3px"
+font = "Atkinson Hyperlegible:https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap, sans-serif"
+headingFont = "Literata:https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap, serif"
