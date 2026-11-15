@@ -1,10 +1,10 @@
-/* "Ruang periksa": halaman gelap arang, citra fundus jadi sumber warna. Aksen oranye retina hanya di tombol utama;
+/* Tema terang: halaman putih, citra fundus di bingkai hitam. Aksen oranye retina hanya di tombol utama;
    warna kelas (hijau/kuning/merah) hanya di hasil prediksi. */
 :root {
-  --bg: #111315; --bg-2: #1a1d20; --sumur: #0a0b0c; --teks: #e9e7e3; --teks-2: #9a9fa6; --garis: #2b2f34;
-  --aksen: #e8743b; --kontur: #00c8ff;
-  /* warna kelas, semuanya >= 4.5:1 di atas --bg */
-  --k-normal: #3fb68b; --k-parsial: #e0b33a; --k-total: #f0606e;
+  --bg: #ffffff; --bg-2: #f4f5f6; --sumur: #0b0c0d; --teks: #15191e; --teks-2: #5b636c; --garis: #dfe2e5;
+  --aksen: #c4541f; --kontur: #00c8ff;
+  /* warna kelas, semuanya >= 4.5:1 di atas putih */
+  --k-normal: #1d7f5c; --k-parsial: #946600; --k-total: #c93545;
   --sans: "IBM Plex Sans", system-ui, sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, monospace;
 }
@@ -51,20 +51,20 @@ ul.prob, ol.alur { padding-left: 0 !important; }
 .ajakan p { color: var(--teks-2); margin: 0 0 18px; max-width: 56ch; }
 .kaki { color: var(--teks-2); font-size: .9375rem; margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--garis); }
 
-/* tombol utama: teks gelap di atas oranye (putih di atas #e8743b hanya ~2.9:1) */
+/* tombol utama: teks putih di atas oranye #c4541f (4.5:1) */
 .stButton button[kind="primary"] { min-height: 48px; padding: 0 22px; font-weight: 600; font-size: 1.02rem; color: var(--bg); }
-.stButton button[kind="primary"]:hover, .stButton button[kind="primary"]:focus-visible { color: var(--bg); background: #f08a55; border-color: #f08a55; }
+.stButton button[kind="primary"]:hover, .stButton button[kind="primary"]:focus-visible { color: var(--bg); background: #a9461a; border-color: #a9461a; }
 .stButton button[kind="primary"] p { color: inherit; }
 
 /* ---------- halaman klasifikasi ---------- */
-.lensa { background: var(--sumur); border: 1px solid var(--garis); border-radius: 3px; padding: 20px; }
+.lensa { background: var(--sumur); border: 0; border-radius: 3px; padding: 20px; }
 .lensa .bulat { aspect-ratio: 1; border-radius: 50%; overflow: hidden; display: grid; place-items: center;
-  border: 1px dashed #3a3f45; background: radial-gradient(circle, #15171a 0 60%, var(--sumur) 100%); color: var(--teks-2); text-align: center; }
+  border: 1px dashed #3a3f45; background: radial-gradient(circle, #15171a 0 60%, var(--sumur) 100%); color: #9a9fa6; text-align: center; }
 .lensa .bulat.terisi { border: 1px solid #3a3f45; }
 .lensa .bulat img { width: 100%; height: 100%; object-fit: cover; }
-.lensa .bulat strong { display: block; color: var(--teks); font-weight: 600; font-size: 1.2rem; margin-bottom: 6px; }
+.lensa .bulat strong { display: block; color: #e9e7e3; font-weight: 600; font-size: 1.2rem; margin-bottom: 6px; }
 .lensa .bulat div { padding: 0 14%; font-size: .95rem; }
-.lensa-ket { margin: 12px 0 0; color: var(--teks-2); font-size: .9375rem; overflow-wrap: anywhere; }
+.lensa-ket { margin: 12px 0 0; color: #9a9fa6; font-size: .9375rem; overflow-wrap: anywhere; }
 
 .label-kecil { margin: 0 0 6px; color: var(--teks-2); font-size: .9375rem; }
 .hasil-kelas { display: flex; align-items: center; gap: 16px; margin: 0; font-family: var(--sans); font-weight: 600; letter-spacing: -.025em; font-size: clamp(2.1rem, 1.6rem + 2.4vw, 3.2rem); line-height: 1.05; }
@@ -90,5 +90,5 @@ ul.prob, ol.alur { padding-left: 0 !important; }
 .panel figcaption .no { font-family: var(--mono); color: var(--teks); font-size: .9rem; margin-right: 8px; }
 .panel figcaption b { color: var(--teks); font-weight: 600; }
 .legenda { display: inline-flex; align-items: center; gap: 6px; margin-right: 14px; white-space: nowrap; }
-.legenda i { width: 18px; height: 0; border-top: 2px solid var(--kontur); }
+.legenda i { width: 18px; height: 0; border-top: 2px solid var(--kontur); box-shadow: 0 0 0 3px var(--sumur); }
 .legenda i.putih { border-top: 1px solid #fff; }

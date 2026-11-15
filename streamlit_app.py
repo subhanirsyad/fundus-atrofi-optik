@@ -46,12 +46,12 @@ def latar_svg(seed=11):
     # arkade temporal melengkung mengitari makula (kiri disc), cabang nasal ke kanan
     for sudut, belok in ((-2.3, -0.035), (2.3, 0.035), (-2.9, -0.01), (2.9, 0.01), (-0.8, 0.0), (0.8, 0.0)):
         cabang(dx, dy, sudut, rng.uniform(170, 230), 5.0, belok, 4)
-    svg = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" fill="none" stroke="#3d281c" '
+    svg = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" fill="none" stroke="#f0cbb6" '
            'stroke-linecap="round" stroke-linejoin="round">'
            f'<circle cx="{c}" cy="{c}" r="{R}" stroke-width="1.5"/>'
            f'<circle cx="{c}" cy="{c}" r="{R + 22}" stroke-width="1" stroke-dasharray="2 8"/>'
            + "".join(garis) +
-           f'<circle cx="{dx}" cy="{dy}" r="36" stroke-width="2.5" fill="#111315"/>'
+           f'<circle cx="{dx}" cy="{dy}" r="36" stroke-width="2.5" fill="#ffffff"/>'
            f'<circle cx="{dx}" cy="{dy}" r="16" stroke-width="1.2"/>'
            '<circle cx="300" cy="455" r="24" stroke-width="1" stroke-dasharray="3 5"/></svg>')
     return 'url("data:image/svg+xml;base64,%s")' % base64.b64encode(svg.encode()).decode()

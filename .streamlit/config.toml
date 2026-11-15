@@ -4,15 +4,15 @@ maxUploadSize = 25
 [client]
 toolbarMode = "minimal"
 
-# "Ruang periksa": gelap seperti ruang funduskopi / viewer citra medis, supaya citra fundus (oranye di atas hitam)
-# menyatu dengan halaman. Aksen oranye retina hanya untuk tombol utama.
+# Terang: putih bersih untuk dibaca dan diproyeksikan saat sidang. Aksen oranye retina (warna citra fundus)
+# hanya untuk tombol utama; citra tetap di bingkai hitam.
 [theme]
-base = "dark"
-primaryColor = "#e8743b"
-backgroundColor = "#111315"
-secondaryBackgroundColor = "#1a1d20"
-textColor = "#e9e7e3"
-borderColor = "#2b2f34"
+base = "light"
+primaryColor = "#c4541f"
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#f4f5f6"
+textColor = "#15191e"
+borderColor = "#dfe2e5"
 baseRadius = "3px"
 # IBM Plex: dirancang untuk antarmuka teknis/instrumen; Plex Mono untuk angka probabilitas dan metrik
 font = "IBM Plex Sans:https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap, sans-serif"
