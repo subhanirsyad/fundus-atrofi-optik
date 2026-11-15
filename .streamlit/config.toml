@@ -4,13 +4,17 @@ maxUploadSize = 25
 [client]
 toolbarMode = "minimal"
 
+# "Ruang periksa": gelap seperti ruang funduskopi / viewer citra medis, supaya citra fundus (oranye di atas hitam)
+# menyatu dengan halaman. Aksen oranye retina hanya untuk tombol utama.
 [theme]
-base = "light"
-primaryColor = "#1f1c17"
-backgroundColor = "#f4f0e8"
-secondaryBackgroundColor = "#ebe5d8"
-textColor = "#1f1c17"
-borderColor = "#cfc6b4"
+base = "dark"
+primaryColor = "#e8743b"
+backgroundColor = "#111315"
+secondaryBackgroundColor = "#1a1d20"
+textColor = "#e9e7e3"
+borderColor = "#2b2f34"
 baseRadius = "3px"
-font = "Atkinson Hyperlegible:https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap, sans-serif"
-headingFont = "Literata:https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap, serif"
+# IBM Plex: dirancang untuk antarmuka teknis/instrumen; Plex Mono untuk angka probabilitas dan metrik
+font = "IBM Plex Sans:https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap, sans-serif"
+headingFont = "IBM Plex Sans:https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap, sans-serif"
+codeFont = "IBM Plex Mono:https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap, monospace"

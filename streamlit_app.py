@@ -12,7 +12,7 @@ from huggingface_hub import hf_hub_download
 import pipeline
 
 REPO_MODEL = os.environ.get("REPO_MODEL", "Subhaaannn/SwinUnet")
-IDENTITAS = "Skripsi · [Nama Mahasiswa] · [Program Studi, Universitas]"   # GANTI dengan identitas kamu
+IDENTITAS = "Skripsi · Subhan Irsyaduddien Alhaq · Matematika, Universitas Indonesia"
 DIR = os.path.dirname(os.path.abspath(__file__))
 NAMA = {"Normal": "Normal", "Parsial": "Atrofi Parsial", "Total": "Atrofi Total"}
 WARNA = {"Normal": "var(--k-normal)", "Parsial": "var(--k-parsial)", "Total": "var(--k-total)"}
@@ -46,12 +46,12 @@ def latar_svg(seed=11):
     # arkade temporal melengkung mengitari makula (kiri disc), cabang nasal ke kanan
     for sudut, belok in ((-2.3, -0.035), (2.3, 0.035), (-2.9, -0.01), (2.9, 0.01), (-0.8, 0.0), (0.8, 0.0)):
         cabang(dx, dy, sudut, rng.uniform(170, 230), 5.0, belok, 4)
-    svg = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" fill="none" stroke="#ddd3c1" '
+    svg = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" fill="none" stroke="#3d281c" '
            'stroke-linecap="round" stroke-linejoin="round">'
            f'<circle cx="{c}" cy="{c}" r="{R}" stroke-width="1.5"/>'
            f'<circle cx="{c}" cy="{c}" r="{R + 22}" stroke-width="1" stroke-dasharray="2 8"/>'
            + "".join(garis) +
-           f'<circle cx="{dx}" cy="{dy}" r="36" stroke-width="2.5" fill="#f4f0e8"/>'
+           f'<circle cx="{dx}" cy="{dy}" r="36" stroke-width="2.5" fill="#111315"/>'
            f'<circle cx="{dx}" cy="{dy}" r="16" stroke-width="1.2"/>'
            '<circle cx="300" cy="455" r="24" stroke-width="1" stroke-dasharray="3 5"/></svg>')
     return 'url("data:image/svg+xml;base64,%s")' % base64.b64encode(svg.encode()).decode()
@@ -90,7 +90,7 @@ def pratinjau(data):
 # Halaman 1: Beranda
 # ======================================================================
 def beranda():
-    st.html("<style>.stApp { background-image: var(--latar); }</style>")   # <style> harus sendirian di st.html
+    st.html("<style>.stApp { background-image: var(--ilustrasi); }</style>")   # <style> harus sendirian di st.html
     st.html(f"""
 <p class="meta">{IDENTITAS}</p>
 <h1 class="judul">Klasifikasi atrofi optik pada citra fundus</h1>
@@ -176,7 +176,7 @@ def klasifikasi():
     with kanan:
         if not data:
             st.html('<p class="label-kecil">Hasil</p><h2 style="margin:0 0 10px">Belum ada citra yang dianalisis</h2>'
-                    '<p style="color:var(--tinta-2);max-width:56ch">Setelah citra diunggah, di sini muncul kelas yang dipilih model '
+                    '<p style="color:var(--teks-2);max-width:56ch">Setelah citra diunggah, di sini muncul kelas yang dipilih model '
                     'dan probabilitas tiap kelas. Di bawahnya ada kontur optic disc, ROI, dan Grad-CAM.</p>')
         else:
             try:
@@ -188,9 +188,9 @@ def klasifikasi():
             p = hasil["probabilitas"]
             k = hasil["kelas"]
             baris = "".join(
-                f'<li class="{"puncak" if n == k else ""}" style="color:{WARNA[n] if n == k else "var(--tinta-2)"}">'
-                f'<span class="nama-k" style="color:var(--tinta)"><i class="cincin" style="color:{WARNA[n]}"></i>{NAMA[n]}</span>'
-                f'<span class="persen" style="color:var(--tinta)">{persen(p[n])}</span>'
+                f'<li class="{"puncak" if n == k else ""}" style="color:{WARNA[n] if n == k else "var(--teks-2)"}">'
+                f'<span class="nama-k" style="color:var(--teks)"><i class="cincin" style="color:{WARNA[n]}"></i>{NAMA[n]}</span>'
+                f'<span class="persen" style="color:var(--teks)">{persen(p[n])}</span>'
                 f'<span class="batang"><i style="width:{p[n] * 100:.1f}%;color:{WARNA[n]}"></i></span></li>' for n in URUT)
             dua = sorted(p.values(), reverse=True)
             catatan = ""
@@ -202,7 +202,7 @@ def klasifikasi():
                             'Anggap hasil ini ragu.</p>')
             sumber = "ROI dari Swin-UNet" if hasil["sumber_roi"] == "swin" else "ROI cadangan"
             st.html(f'<p class="label-kecil">Prediksi model</p>'
-                    f'<p class="hasil-kelas" style="color:{WARNA[k]}"><i class="cincin"></i><span style="color:var(--tinta)">{NAMA[k]}</span></p>'
+                    f'<p class="hasil-kelas" style="color:{WARNA[k]}"><i class="cincin"></i><span style="color:var(--teks)">{NAMA[k]}</span></p>'
                     f'<p class="hasil-sub">Probabilitas <b>{persen(p[k])}</b> · {sumber} · '
                     f'{str(hasil["detik"]).replace(".", ",")} detik di CPU</p>'
                     f'<ul class="prob">{baris}</ul>{catatan}')
@@ -230,5 +230,5 @@ def klasifikasi():
 HAL_BERANDA = st.Page(beranda, title="Beranda", url_path="beranda", default=True)
 HAL_KLASIFIKASI = st.Page(klasifikasi, title="Klasifikasi", url_path="klasifikasi")
 with open(os.path.join(DIR, "gaya.css"), encoding="utf-8") as f:
-    st.html(f"<style>:root{{--latar:{latar_svg()}}}\n{f.read()}</style>")
+    st.html(f"<style>:root{{--ilustrasi:{latar_svg()}}}\n{f.read()}</style>")
 st.navigation([HAL_BERANDA, HAL_KLASIFIKASI], position="hidden").run()
