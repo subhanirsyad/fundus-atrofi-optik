@@ -41,8 +41,9 @@ ul.prob, ol.alur { padding-left: 0 !important; }
 .tabel-gulir caption { text-align: left; color: var(--teks-2); font-size: .9375rem; padding-bottom: 10px; caption-side: top; }
 .tabel-gulir th, .tabel-gulir td { text-align: left; padding: 12px 12px 12px 0; border: 0; border-bottom: 1px solid var(--garis); background: transparent; color: var(--teks); }
 .tabel-gulir thead th { font-weight: 400; color: var(--teks-2); font-size: .9375rem; border-bottom-color: var(--teks-2); }
-.tabel-gulir .n { text-align: right; padding-right: 0; padding-left: 12px; font-family: var(--mono); }
+.tabel-gulir .n { white-space: nowrap; text-align: right; padding-right: 0; padding-left: 12px; font-family: var(--mono); }
 .tabel-gulir thead .n { font-family: var(--sans); }
+.tabel-gulir .n small { display: block; color: var(--teks-2); font-size: .8em; font-weight: 400; }
 .tabel-gulir tr.dipakai td { font-weight: 600; }
 .tabel-gulir tr.dipakai td span { display: block; font-weight: 400; color: var(--teks-2); font-size: .875rem; }
 .catatan { margin: 16px 0 0; padding: 12px 14px; background: var(--bg-2); border: 1px solid var(--garis); border-radius: 3px; font-size: .9375rem; max-width: 66ch; color: var(--teks); }

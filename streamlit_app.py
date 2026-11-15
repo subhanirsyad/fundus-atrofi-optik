@@ -127,15 +127,15 @@ Normal, Atrofi Parsial, atau Atrofi Total. Grad-CAM menunjukkan bagian citra yan
   <h2>Hasil evaluasi</h2>
   <p>Validasi silang 5 fold yang dibagi per pasien, sehingga mata kiri dan kanan pasien yang sama tidak pernah terpisah ke latih dan validasi.</p>
   <div class="tabel-gulir"><table>
-    <caption>3 kelas, out-of-fold. 350 citra dari 203 pasien (Normal 118, Parsial 114, Total 118), seed 42.</caption>
+    <caption>3 kelas, rata-rata 5 fold ± simpangan baku. 350 citra dari 203 pasien (Normal 118, Parsial 114, Total 118), seed 42.</caption>
     <thead><tr><th>Model</th><th class="n">Akurasi</th><th class="n">F1 makro</th><th class="n">AUC</th></tr></thead>
     <tbody>
-      <tr class="dipakai"><td>Swin-UNet ROI + ResNet-18<span>dipakai di web ini</span></td><td class="n">78,9%</td><td class="n">78,1%</td><td class="n">0,904</td></tr>
-      <tr><td>ResNet-18, fundus utuh</td><td class="n">74,0%</td><td class="n">73,8%</td><td class="n">0,880</td></tr>
+      <tr class="dipakai"><td>Swin-UNet ROI + ResNet-18<span>dipakai di web ini</span></td><td class="n">78,9% <small>± 3,3</small></td><td class="n">77,5% <small>± 4,0</small></td><td class="n">0,904 <small>± 0,011</small></td></tr>
+      <tr><td>ResNet-18, fundus utuh</td><td class="n">74,0% <small>± 4,8</small></td><td class="n">73,4% <small>± 4,0</small></td><td class="n">0,884 <small>± 0,035</small></td></tr>
     </tbody>
   </table></div>
   <p class="catatan">Web ini memakai bobot dari fold 2, fold dengan akurasi validasi tertinggi (82,6%). Angka itu dipilih
-  dari skornya sendiri sehingga cenderung optimis; angka yang dilaporkan tetap hasil out-of-fold di tabel.</p>
+  dari skornya sendiri sehingga cenderung optimis; angka yang dilaporkan tetap rata-rata 5 fold di tabel.</p>
 </section>
 
 <div class="ajakan">
